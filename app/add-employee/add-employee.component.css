@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+input[type=text], select {
+    width: 20%;
+    padding: 12px 20px;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.btn {
+  margin-top: 10px;
+}
+#DisplayEmp{
+  text-decoration: none;
+  color: white;
+}
+.displayHide{
+  display: none;
+}
+.AddEMPLOYEE {
+  display: none;
+}

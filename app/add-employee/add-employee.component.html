@@ -1,0 +1,73 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <title>Main Page</title>
+</head>
+<body>
+    <div #alert class="alert alert-success alert-dismissible fade displayHide " role="alert">
+        <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>{{message}}</strong>
+  </div>   
+  <div #AddEMPLOYEE class="container-fluid mt-2 ">
+              <form [formGroup]="EmpForm" (ngSubmit)="onAddSubmit()" >
+                <div class="form-group">
+                <label for="Ename">Employee Name</label>
+                    <input type="text" id="Ename" name="Employee Name" placeholder=" name.." formControlName="name" required>
+                </div>
+                <div class="form-group">
+                <label for="ESal">Employee Salary</label>
+                    <input type="text" id="Salary" name="Employee Salary" placeholder=" Salary.." formControlName="salary" required>
+                </div>
+                <div class="form-group">
+                <label for="EAge">Employee Age</label>
+                    <input type="text" id="Age" name="Employee Age" placeholder=" Age.." formControlName="age" required>
+                </div>
+                <div class="form-group">
+                    <input class="btn btn-info"  type="submit" [disabled]="!EmpForm.valid" value="Submit">
+                </div>
+                <div class="form-group">
+                    <nav>
+                        <button type="button" class="btn btn-info btn">
+                            <a id="DisplayEmp" routerLink="/displayEmp">Go Back</a>
+                        </button>
+                    </nav>
+                </div>
+              </form>
+  </div>
+  <div class="container-fluid mt-2"  *ngIf="myEditData">
+      <form [formGroup]="EmpFormUpdate" (ngSubmit)="onUpdateSubmit()" >
+        <div class="form-group">
+        <label for="Ename">Employee Name</label>
+            <input [(ngModel)]="myEditData.employee_name" type="text" id="Ename" name="Employee Name" placeholder=" name.." formControlName="name" required>
+        </div>
+        <div class="form-group">
+        <label for="ESal">Employee Salary</label>
+            <input [(ngModel)]="myEditData.employee_salary" type="text" id="Salary" name="Employee Salary" placeholder=" Salary.." formControlName="salary" required>
+        </div>
+        <div class="form-group">
+        <label for="EAge">Employee Age</label>
+            <input [(ngModel)]="myEditData.employee_age" type="text" id="Age" name="Employee Age" placeholder=" Age.." formControlName="age" required>
+        </div>
+        <div class="form-group">
+            <input class="btn btn-info"  type="submit" [disabled]="!EmpFormUpdate.valid" value="Submit">
+        </div>
+        <div class="form-group">
+            <nav>
+                <button type="button" class="btn btn-info btn">
+                    <a id="DisplayEmp" routerLink="/displayEmp">Go Back</a>
+                </button>
+            </nav>
+        </div>
+      </form>
+</div>
+  
+</body>
+</html>
